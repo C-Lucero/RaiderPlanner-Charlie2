@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Connect - Raider Planner</title>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+  <!--Universal Nav Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="images/ttulogo.png" alt="Logo" class="logo-img"> Raider Planner</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Calendar</a></li>
+        <li><a href="search.html">Course Search</a></li>
+        <li><a href="social.html" class="active">Class Connect</a></li>
+        <li><a href="plans.html">Plans & Export</a></li>
+        <li><a href="roadmap.html">Degree Roadmap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="page-header">
+      <h1>Class Connect & Study Groups</h1>
+      <p>Connect safely with fellow Red Raiders, find lab partners, and share study group links.</p>
+    </section>
+
+    <!-- Opt-In Profile Card -->
+    <section class="profile-optin-card">
+      <h2>Your Class Connect Profile</h2>
+      <p class="muted-text profile-subtitle">Opt in to let classmates in your sections find you. Your schedule is never shared.</p>
+      
+      <div class="optin-form" id="optInFormContainer">
+        <input type="text" id="userDisplayName" placeholder="Preferred Name (e.g. Alex Garcia)" />
+        <input type="text" id="userContact" placeholder="Contact (e.g. Discord: alex#1234 or Snapchat)" />
+        <select id="userStatus">
+          <option value="Looking for Lab Partner">Looking for Lab Partner</option>
+          <option value="Studying for Midterms">Studying for Midterms</option>
+          <option value="Looking for Project Group">Looking for Project Group</option>
+          <option value="Open to Study">Open to Study</option>
+        </select>
+        <button>Save & Opt-In</button>
+      </div>
+      
+      <!-- Dynamic status banner when opted in -->
+      <div id="profileActiveBanner" class="profile-active-banner">
+        <span>✔ You are opted-in as <strong id="currentStatusDisplay"></strong></span>
+        <button class="opt-out-btn">Opt Out</button>
+      </div>
+    </section>
+
+    <!-- Group chats area -->
+    <section class="group-links-section">
+      <div class="section-divider">
+        <h2>Shared Class Group Chats</h2>
+        <button class="btn-secondary">+ Submit Group Link</button>
+      </div>
+
+      <!-- Submitter Box / Form -->
+      <div id="addGroupBox" class="add-group-box">
+        <h3>Add a Group Chat Link</h3>
+        <div class="group-form-grid">
+          <input type="text" id="groupCourse" placeholder="Course (e.g. CS 2413)" />
+          <select id="groupPlatform">
+            <option value="Discord">Discord Server</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Snapchat">Snapchat</option>
+          </select>
+          <input type="text" id="groupLinkUrl" placeholder="Invite Link (https://...)" />
+          <button>Post</button>
+        </div>
+      </div>
+
+      <div id="groupChatsList" class="group-chats-grid">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- search for other students -->
+    <section class="peer-directory-section">
+      <div class="directory-header">
+        <h2>Classmates Directory</h2>
+        <input type="text" id="directorySearch" placeholder="Filter by course or name..." />
+      </div>
+
+      <div id="classmatesList" class="classmates-grid">
+        <!-- populated through backend -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Universal footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Charlie2 | Raider Planner  </p>
+  </footer>
+  <!--Raider AI widget (only in html for display, will reside in javascript file) -->
+<div id="raider-ai-widget-root">
+  <button id="ai-widget-trigger" title="Ask Raider AI">
+    🤖 <span class="ai-btn-text">Ask Raider AI</span>
+  </button>
+
+  <div id="ai-widget-drawer" class="ai-drawer-closed">
+    <div class="ai-drawer-header">
+      <div class="ai-header-title">
+        <span class="ai-icon">🤖</span>
+        <strong>Raider AI Assistant</strong>
+      </div>
+      <button class="ai-close-btn">&times;</button>
+    </div>
+
+    <div id="ai-chat-messages" class="ai-chat-body">
+      <div class="ai-msg bot">
+        👋 Hi! I'm your Raider AI Assistant. Ask me anything about your schedule, course prerequisites, or study plans!
+      </div>
+    </div>
+
+    <div class="ai-input-container">
+      <input type="text" id="ai-user-prompt" placeholder="Ask AI (e.g. Find CS electives without Friday classes)..." />
+      <button id="ai-send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
