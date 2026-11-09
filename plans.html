@@ -1,0 +1,63 @@
+<!--Christopher Lucero-->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raider Planner - Schedule Manager & Export</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans">
+  
+  <nav class="navbar">
+    <div class="logo">⚡ Raider Planner</div>
+    <div class="nav-links">
+      <a href="/">Calendar</a>
+      <a href="/search">Course Search</a>
+      <a href="/social">Class Connect</a>
+      <a href="/plans" class="active">Plans & Export</a>
+      <a href="/degree-map">Degree Roadmap</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>Schedule Plans & Transfer Tools</h1>
+      <p>Manage multiple schedule variations, export your calendar to external apps, or batch-import registration CRNs.</p>
+    </header>
+
+    <!-- Active & Saved Plans Section -->
+    <div class="section-header">
+      <h2>Your Saved Plans</h2>
+      <button class="btn-primary" onclick="createNewPlan()">+ Create Blank Plan</button>
+    </div>
+
+    <div id="plansGrid" class="plans-grid">
+      <!-- Dynamically populated by plans.js -->
+    </div>
+
+    <!-- Export & Batch Import Section -->
+    <div class="transfer-section">
+      <div class="transfer-card">
+        <h3>Export Active Schedule</h3>
+        <p>Export your active schedule, custom events, and exam dates for RaiderLink or external calendar apps.</p>
+        <div class="btn-group">
+          <button onclick="copyCrnList()" class="btn-secondary">Copy Registration CRNs</button>
+          <button onclick="exportIcsFile()" class="btn-action">Download .ICS Calendar File</button>
+        </div>
+      </div>
+
+      <div class="transfer-card">
+        <h3>Batch Import CRNs</h3>
+        <p>Paste comma-separated CRNs from an advisor email or sheet to auto-fetch courses onto your active calendar.</p>
+        <textarea id="importCrnText" placeholder="e.g., 12345, 67890, 54321..."></textarea>
+        <button onclick="importCrnBatch()" class="btn-primary">Fetch & Add to Active Calendar</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Dedicated Page Script -->
+  <script src="../static/js/plans.js?v=1"></script>
+  <script src="../static/js/ai-widget.js"></script>
+</body>
+</html>
