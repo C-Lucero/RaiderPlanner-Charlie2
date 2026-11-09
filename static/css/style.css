@@ -1,0 +1,377 @@
+/* ==========================================================================
+   Base styles (body, universal..etc)
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Helper Classes */
+.muted-text {
+  color: #94a3b8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+/* ==========================================================================
+   Header and Nav bar
+   ========================================================================== */
+header {
+  background-color: #0b1120;
+  border-bottom: 2px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navbar .logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #CC0000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.nav-links a:hover {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+.nav-links a.active {
+  background-color: #CC0000;
+  color: #ffffff;
+}
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  height: 24px;   /* Adjust height to fit your navbar text */
+  width: auto;
+  object-fit: contain;
+}
+
+
+/* ==========================================================================
+   Universal buttons and input
+   ========================================================================== */
+input[type="text"],
+input[type="datetime-local"],
+select,
+textarea,
+#dept-filter,
+#search-query,
+#directorySearch,
+#auditText {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+#dept-filter:focus,
+#search-query:focus,
+#directorySearch:focus {
+  border-color: #CC0000;
+}
+
+button {
+  background-color: #CC0000;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #990000;
+}
+
+.btn-primary {
+  background-color: #CC0000;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #334155;
+}
+
+.btn-secondary:hover {
+  background-color: #334155;
+}
+
+.btn-action {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-action:hover {
+  background-color: #1d4ed8;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+
+/* ==========================================================================
+   Headers and sections all pages share
+   ========================================================================== */
+.page-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.page-header p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.section-divider,
+.directory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+
+/* ==========================================================================
+   CSS for index.html (calendar)
+   ========================================================================== */
+.main-layout {
+  display: flex;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+  width: 100%;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.credit-box {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.quick-add {
+  display: flex;
+  gap: 8px;
+}
+
+.quick-add input {
+  flex: 1;
+}
+
+.crn-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action-btn {
+  margin-top: auto;
+}
+
+.calendar-section {
+  flex: 1;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+
+/* ==========================================================================
+    Design for custom events
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 460px;
+  padding: 20px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-btn:hover {
+  color: #f8fafc;
+  background: transparent;
+}
+
+.modal-body .form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.modal-instructions {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-cancel {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.btn-cancel:hover {
+  background-color: #475569;
+}
+
+.btn-save {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-save:hover {
+  background-color: #1d4ed8;
+}
