@@ -1,49 +1,58 @@
-<!--Christopher Lucero-->
-  <!DOCTYPE html>
+<!DOCTYPE html>
+<!--Christophe Lucero-->
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raider Planner - Schedule Manager & Export</title>
-  <link rel="stylesheet" href="static/css/style.css" />
-</head>
-<body class="bg-slate-900 text-slate-100 font-sans">
-  
-  <nav class="navbar">
-    <div class="logo">⚡ Raider Planner</div>
-    <div class="nav-links">
-      <a href="/">Calendar</a>
-      <a href="/search">Course Search</a>
-      <a href="/social">Class Connect</a>
-      <a href="/plans" class="active">Plans & Export</a>
-      <a href="/degree-map">Degree Roadmap</a>
-    </div>
-  </nav>
 
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+  <!--Universal Nav Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="images/ttulogo.png" alt="Logo" class="logo-img"> Raider Planner</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Calendar</a></li>
+        <li><a href="search.html">Course Search</a></li>
+        <li><a href="social.html">Class Connect</a></li>
+        <li><a href="plans.html" class="active">Plans & Export</a></li>
+        <li><a href="roadmap.html">Degree Roadmap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--Main Content -->
   <main class="container">
-    <header class="page-header">
+    <section class="page-header">
       <h1>Schedule Plans & Transfer Tools</h1>
       <p>Manage multiple schedule variations, export your calendar to external apps, or batch-import registration CRNs.</p>
-    </header>
+    </section>
 
-    <!-- Active & Saved Plans Section -->
-    <div class="section-header">
-      <h2>Your Saved Plans</h2>
-      <button class="btn-primary" onclick="createNewPlan()">+ Create Blank Plan</button>
-    </div>
+    <!--Saved Calendars -->
+    <section class="saved-plans-section">
+      <div class="section-divider">
+        <h2>Your Saved Plans</h2>
+        <button class="btn-primary">+ Create Blank Plan</button>
+      </div>
 
-    <div id="plansGrid" class="plans-grid">
-      <!-- Dynamically populated by plans.js -->
-    </div>
+      <div id="plansGrid" class="plans-grid">
+        <!-- functions through js -->
+      </div>
+    </section>
 
-    <!-- Export & Batch Import Section -->
-    <div class="transfer-section">
+    <!--exporting and importing calendars -->
+    <section class="transfer-section">
       <div class="transfer-card">
         <h3>Export Active Schedule</h3>
         <p>Export your active schedule, custom events, and exam dates for RaiderLink or external calendar apps.</p>
         <div class="btn-group">
-          <button onclick="copyCrnList()" class="btn-secondary">Copy Registration CRNs</button>
-          <button onclick="exportIcsFile()" class="btn-action">Download .ICS Calendar File</button>
+          <button class="btn-secondary">Copy Registration CRNs</button>
+          <button class="btn-action">Download .ICS Calendar File</button>
         </div>
       </div>
 
@@ -51,13 +60,42 @@
         <h3>Batch Import CRNs</h3>
         <p>Paste comma-separated CRNs from an advisor email or sheet to auto-fetch courses onto your active calendar.</p>
         <textarea id="importCrnText" placeholder="e.g., 12345, 67890, 54321..."></textarea>
-        <button onclick="importCrnBatch()" class="btn-primary">Fetch & Add to Active Calendar</button>
+        <button class="btn-primary">Fetch & Add to Active Calendar</button>
       </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Dedicated Page Script -->
-  <script src="../static/js/plans.js?v=1"></script>
-  <script src="../static/js/ai-widget.js"></script>
+  <!-- Universal footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Charlie2 | Raider Planner  </p>
+  </footer>
+  <!--Raider AI widget (only in html for display, will reside in javascript file) -->
+<div id="raider-ai-widget-root">
+  <button id="ai-widget-trigger" title="Ask Raider AI">
+    🤖 <span class="ai-btn-text">Ask Raider AI</span>
+  </button>
+
+  <div id="ai-widget-drawer" class="ai-drawer-closed">
+    <div class="ai-drawer-header">
+      <div class="ai-header-title">
+        <span class="ai-icon">🤖</span>
+        <strong>Raider AI Assistant</strong>
+      </div>
+      <button class="ai-close-btn">&times;</button>
+    </div>
+
+    <div id="ai-chat-messages" class="ai-chat-body">
+      <div class="ai-msg bot">
+        👋 Hi! I'm your Raider AI Assistant. Ask me anything about your schedule, course prerequisites, or study plans!
+      </div>
+    </div>
+
+    <div class="ai-input-container">
+      <input type="text" id="ai-user-prompt" placeholder="Ask AI (e.g. Find CS electives without Friday classes)..." />
+      <button id="ai-send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
