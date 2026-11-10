@@ -1,0 +1,236 @@
+<!-- Phoenix Vera Section-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raider Planner - Live Course Search</title>
+
+  <!-- Shared external stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+  <!-- Universal navigation bar -->
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="logo">
+        <img
+          src="images/ttulogo.png"
+          alt="Texas Tech University logo"
+          class="logo-img"
+        >
+        Raider Planner
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Calendar</a></li>
+        <li>
+          <a href="search.html" class="active" aria-current="page">
+            Course Search
+          </a>
+        </li>
+        <li><a href="social.html">Class Connect</a></li>
+        <li><a href="plans.html">Plans &amp; Export</a></li>
+        <li><a href="roadmap.html">Degree Roadmap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+
+    <!-- Page heading -->
+    <section class="page-header">
+      <h1>Live Course Search</h1>
+      <p>
+        Search TTU's public catalog by Term, Subject,
+        Course Number, or CRN.
+      </p>
+    </section>
+
+    <!-- Course search filters -->
+    <section class="search-box-card" aria-label="Course search filters">
+      <form id="course-search-form" role="search">
+        <div class="search-inputs">
+
+          <!-- Term selection -->
+          <div class="search-field">
+            <label for="term-filter">Academic Term</label>
+            <select id="term-filter" name="term">
+              <option value="">Select term...</option>
+            </select>
+          </div>
+
+          <!-- Subject selection -->
+          <div class="search-field">
+            <label for="dept-filter">Subject</label>
+            <input
+              type="text"
+              list="dept-options"
+              id="dept-filter"
+              name="department"
+              placeholder="e.g., CS"
+              autocomplete="off"
+            >
+            <datalist id="dept-options"></datalist>
+          </div>
+
+          <!-- Course search -->
+          <div class="search-field search-field-grow">
+            <label for="search-query">Course Name, Number, or CRN</label>
+            <input
+              type="search"
+              id="search-query"
+              name="query"
+              placeholder="CS 1412, Data Structures, or CRN..."
+            >
+          </div>
+
+          <!-- Search button -->
+          <button
+            type="submit"
+            id="search-btn"
+            class="search-submit-btn"
+          >
+            Search Classes
+          </button>
+
+        </div>
+      </form>
+    </section>
+
+    <!-- Search results summary -->
+    <div
+      id="results-summary"
+      role="status"
+      aria-live="polite"
+    >
+      Showing
+      <span id="current-count">0</span>
+      of
+      <span id="total-count">0</span>
+      courses
+    </div>
+
+    <!-- Course results -->
+    <section
+      id="results-grid"
+      class="results-grid"
+      aria-label="Course search results"
+    >
+      <p class="results-placeholder">
+        Select a term and department above to search courses.
+      </p>
+    </section>
+
+    <!-- Pagination -->
+    <div
+      id="pagination-controls"
+      aria-label="Course result pages"
+    >
+      <button
+        type="button"
+        id="prev-page-btn"
+        disabled
+      >
+        &larr; Previous
+      </button>
+
+      <span id="page-indicator" aria-live="polite">
+        Page 1 of 1
+      </span>
+
+      <button
+        type="button"
+        id="next-page-btn"
+        disabled
+      >
+        Next &rarr;
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Universal footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Charlie2 | Raider Planner</p>
+  </footer>
+
+  <!-- Raider AI assistant widget -->
+  <div id="raider-ai-widget-root">
+
+    <!-- Open AI assistant -->
+    <button
+      type="button"
+      id="ai-widget-trigger"
+      title="Ask Raider AI"
+      aria-label="Open Raider AI Assistant"
+      aria-expanded="false"
+      aria-controls="ai-widget-drawer"
+    >
+      <span aria-hidden="true">🤖</span>
+      <span class="ai-btn-text">Ask Raider AI</span>
+    </button>
+
+    <!-- AI assistant drawer -->
+    <div
+      id="ai-widget-drawer"
+      class="ai-drawer-closed"
+      aria-label="Raider AI Assistant"
+    >
+
+      <div class="ai-drawer-header">
+        <div class="ai-header-title">
+          <span class="ai-icon" aria-hidden="true">🤖</span>
+          <strong>Raider AI Assistant</strong>
+        </div>
+
+        <button
+          type="button"
+          class="ai-close-btn"
+          aria-label="Close AI Assistant"
+        >
+          &times;
+        </button>
+      </div>
+
+      <!-- Chat messages -->
+      <div
+        id="ai-chat-messages"
+        class="ai-chat-body"
+        role="log"
+        aria-live="polite"
+        aria-label="AI conversation"
+      >
+        <div class="ai-msg bot">
+          👋 Hi! I'm your Raider AI Assistant.
+          Ask me anything about your schedule,
+          course prerequisites, or study plans!
+        </div>
+      </div>
+
+      <!-- AI message input -->
+      <div class="ai-input-container">
+        <label for="ai-user-prompt" class="visually-hidden">
+          Message to Raider AI
+        </label>
+
+        <input
+          type="text"
+          id="ai-user-prompt"
+          placeholder="Ask AI about courses or schedules..."
+        >
+
+        <button type="button" id="ai-send-btn">
+          Send
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
