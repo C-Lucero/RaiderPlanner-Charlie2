@@ -1,0 +1,132 @@
+<!-- Zeke Garcia's Section-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raider Planner - Calendar Workspace</title>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+  <!-- Main nav bar that's universal on every page -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><img src="images/ttulogo.png" alt="Logo" class="logo-img"> Raider Planner</div>
+      <ul class="nav-links">
+        <li><a href="templates/index.html" class="active">Calendar</a></li>
+        <li><a href="search.html">Course Search</a></li>
+        <li><a href="social.html">Class Connect</a></li>
+        <li><a href="plans.html">Plans & Export</a></li>
+        <li><a href="roadmap.html">Degree Roadmap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main area -->
+  <main class="main-layout">
+    <!-- Sidebar area to enter crn and see hours -->
+    <aside class="sidebar">
+      <h2>Active Schedule</h2>
+      <div id="creditHourTally" class="credit-box">
+        Hours: <span id="totalHours">0</span> / 12 (Full-Time)
+      </div>
+
+      <div class="quick-add">
+        <input type="text" id="quickCrnInput" placeholder="Enter 5-digit CRN..." maxlength="5">
+        <button id="addCrnBtn">+ Add CRN</button>
+      </div>
+
+      <ul id="activeCrnList" class="crn-list">
+        <!-- List of active crns -->
+      </ul>
+
+      <button id="addEventBtn" class="action-btn">+ Add Custom Exam/Event</button>
+    </aside>
+
+    <!-- Calendar area -->
+    <section class="calendar-section">
+      <div id="calendar"></div>
+    </section>
+  </main>
+
+  <!-- Spot to add personal events -->
+  <div id="customEventModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Add Custom Event</h3>
+        <button class="close-btn">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="customTitle">Event Name</label>
+          <input type="text" id="customTitle" placeholder="e.g., CS 2413 Midterm 1">
+        </div>
+
+        <div class="form-group">
+          <label for="customColor">Event Type / Color</label>
+          <select id="customColor">
+            <option value="#D97706">Exam / Quiz (Orange)</option>
+            <option value="#2563EB">Personal / Study (Blue)</option>
+            <option value="#059669">Work / Extra (Green)</option>
+            <option value="#DC2626">Deadline (Red)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customStart">Start Time</label>
+            <input type="datetime-local" id="customStart">
+          </div>
+          <div class="form-group">
+            <label for="customEnd">End Time</label>
+            <input type="datetime-local" id="customEnd">
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-cancel">Cancel</button>
+        <button class="btn-save">Save Event</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (same on every page) -->
+  <footer class="footer">
+    <p>&copy; 2026 Charlie2 | Raider Planner  </p>
+  </footer>
+  <!--Raider AI widget (only in html for display, will reside in javascript file) -->
+<div id="raider-ai-widget-root">
+  <button id="ai-widget-trigger" title="Ask Raider AI">
+    🤖 <span class="ai-btn-text">Ask Raider AI</span>
+  </button>
+
+  <div id="ai-widget-drawer" class="ai-drawer-closed">
+    <div class="ai-drawer-header">
+      <div class="ai-header-title">
+        <span class="ai-icon">🤖</span>
+        <strong>Raider AI Assistant</strong>
+      </div>
+      <button class="ai-close-btn">&times;</button>
+    </div>
+
+    <div id="ai-chat-messages" class="ai-chat-body">
+      <div class="ai-msg bot">
+        👋 Hi! I'm your Raider AI Assistant. Ask me anything about your schedule, course prerequisites, or study plans!
+      </div>
+    </div>
+
+    <div class="ai-input-container">
+      <input type="text" id="ai-user-prompt" placeholder="Ask AI (e.g. Find CS electives without Friday classes)..." />
+      <button id="ai-send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
